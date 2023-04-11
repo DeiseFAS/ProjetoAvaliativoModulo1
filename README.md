@@ -1,7 +1,18 @@
 <h1 align="center">Módulo 1 🎓 Projeto Avaliativo </h1>
 <p align="center">Curso Lab365 - SESI SENAI - Projeto Floripa Mais Tec<p/>
 
+# Índice 
 
+* [Resumo](#resumo)
+* [Introdução](#introdução)
+* [Tecnologias utilizadas](Organização-das-pastas-desse-repositório)
+* [Vídeo de Apresentação](Em-andamento)
+* [Status](Em-andamento)
+* [Documentação do Projeto](Em-andamento)
+
+# Resumo
+
+Repositório criado para entrega do Projeto avaliativo do curso...
 
 
 ### Documentação do Projeto
