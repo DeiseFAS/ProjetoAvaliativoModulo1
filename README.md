@@ -1,6 +1,8 @@
 <h1 align="center">Módulo 1 🎓 Projeto Avaliativo </h1>
 <p align="center">Curso Lab365 - SESI SENAI - Projeto Floripa Mais Tec<p/>
 
+![banner projeto avaliativo modulo1 (1)](https://user-images.githubusercontent.com/71991444/231337627-9487bd4a-a105-4027-b312-32d4c29490f6.jpg)
+
 # Índice 
 
 * [Resumo](#resumo)
