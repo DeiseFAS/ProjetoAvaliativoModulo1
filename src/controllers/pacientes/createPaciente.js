@@ -1,4 +1,4 @@
-const pacientes = require("../../models/paciente")
+const Pacientes = require("../../models/paciente")
 
 
 
@@ -7,7 +7,7 @@ async function createPaciente(request, response) {
     // organizar os dados a serem cadastrados
     
     try {
-        const data = {
+        const paciente = {
             nome_completo: request.body.nome_completo,
             genero: request.body.genero,
             data_de_nascimento: request.body.data_de_nascimento,
@@ -18,27 +18,27 @@ async function createPaciente(request, response) {
             lista_de_cuidados_especificos: request.body.lista_de_cuidados_especificos,
             convenio: request.body.convenio,
             status_de_atendimento: request.body.status_de_atendimento,
-            total_de_atendimentos: request.body.total_de_atendimentos
+            total_de_atendimentos: request.body.total_de_atendimentos,
             
         }
-    
-        const pacienteExiste = await pacientes.findOne({ 
-            where: { nome_completo: request.body.nome_completo } 
+        
+        const cpfExiste = await Pacientes.findOne({ 
+            where: { cpf: request.body.cpf } 
         })
     
-        if(pacienteExiste) {
-            return response.status(409).json({message: 'Paciente já cadastrado'})
+        if(!cpfExiste) {
+            const novoPaciente = await Pacientes.create(paciente)
+             response.status(201).json(novoPaciente)
+
+        }else{
+            response.status(409).json({message: "cpf já cadastrado"})
         }
     
-        const pacientes = await paciente.create(data)
-    
-        response.status(201).json(paciente)
 
     } catch (error) {
-        console.log(error)
-        return response.status(500).json({message: 'Não foi possivel processar a solicitacao'})
+        return response.status(400).json({message: 'Não foi possivel processar a solicitacao'})
     }
 
 }
 
-module.exports = createPaciente
+module.exports = createPaciente;

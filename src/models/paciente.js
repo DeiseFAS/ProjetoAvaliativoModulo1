@@ -1,49 +1,49 @@
 const Sequelize = require('sequelize')
 const conexao = require('../database')
 
-const pacientes = conexao.define('paciente', {
+const Pacientes = conexao.define('paciente', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
      },
      nome_completo: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
      },
      genero: {
-        type: Sequelize.ENUM("M", "F", "N")
+        type: Sequelize.STRING,
      },
      data_de_nascimento: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
      },
      cpf: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
      },
      telefone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
      },
      contato_de_emergencia: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
      },
      lista_de_alergias: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
      },
      lista_de_cuidados_especificos:{
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
      },
      convenio: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
      },
      status_de_atendimento: {
-        type: Sequelize.ENUM("Aguardando Atendimento", "Em Atendimento", "Atendido", "Não Atendido")
+        type: Sequelize.ENUM("AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIMENTO", "NAO_ATENDIDO"),
      },
      total_de_atendimentos: {
         type: Sequelize.INTEGER,
-        defaultValue: 0
+        defaultValue: 0,
      }
 })
 
-module.exports = pacientes
+module.exports = Pacientes
