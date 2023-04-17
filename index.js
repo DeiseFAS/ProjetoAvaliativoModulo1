@@ -12,6 +12,8 @@ const findOnePaciente = require('./src/controllers/pacientes/findOnePaciente');
 
 const updateStatusPaciente = require('./src/controllers/pacientes/updateStatusPaciente')
 
+const updatePaciente = require('./src/controllers/pacientes/updatePaciente')
+
 const app = express()
 app.use(express.json())
 
@@ -26,6 +28,8 @@ app.get('/api/pacientes', findAllPaciente)
 app.get('/api/pacientes/:id', findOnePaciente)
 
 app.put('/api/pacientes/:id/status', updateStatusPaciente)
+
+app.put('/api/pacientes/:id', updatePaciente)
 
 
 conexao.sync({alter: true})
