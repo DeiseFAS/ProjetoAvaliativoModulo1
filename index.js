@@ -10,6 +10,7 @@ const updateStatusPaciente = require('./src/controllers/pacientes/updateStatusPa
 const updatePaciente = require('./src/controllers/pacientes/updatePaciente');
 
 const createMedico = require('./src/controllers/medicos/createMedico');
+const updateMedico = require('./src/controllers/medicos/updateMedico');
 
 const app = express()
 app.use(express.json())
@@ -24,6 +25,8 @@ app.put('/api/pacientes/:id/status', updateStatusPaciente)
 app.put('/api/pacientes/:id', updatePaciente)
 
 app.post('/api/medicos', createMedico)
+app.put('/api/medicos/:id', updateMedico)
+
 
 conexao.sync({alter: true})
 
