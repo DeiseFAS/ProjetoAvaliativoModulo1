@@ -38,7 +38,7 @@ const Pacientes = conexao.define('paciente', {
         type: Sequelize.STRING,
      },
      status_de_atendimento: {
-        type: Sequelize.ENUM("AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIMENTO", "NAO_ATENDIDO"),
+        type: Sequelize.ENUM("AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO", "NAO_ATENDIDO"),
      },
      total_de_atendimentos: {
         type: Sequelize.INTEGER,
