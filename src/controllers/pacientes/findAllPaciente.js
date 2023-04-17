@@ -2,11 +2,6 @@ const Paciente = require('../../models/paciente')
 
 async function findAllPaciente(request, response) {
 
-    // request.body -> pegar o json do body
-    // request.params -> pegar o json dos params
-    // request.query ->  pegar os parametros da URL
-
-
     try {
         const filtros = request.query
         console.log("filtros", filtros)

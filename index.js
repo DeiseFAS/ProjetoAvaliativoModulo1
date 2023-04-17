@@ -8,6 +8,8 @@ const deletePaciente = require('./src/controllers/pacientes/deletePaciente');
 
 const findAllPaciente = require('./src/controllers/pacientes/findAllPaciente');
 
+const findOnePaciente = require('./src/controllers/pacientes/findOnePaciente');
+
 const app = express()
 app.use(express.json())
 
@@ -19,6 +21,7 @@ app.delete('/api/pacientes/:id', deletePaciente)
 
 app.get('/api/pacientes', findAllPaciente)
 
+app.get('/api/pacientes/:id', findOnePaciente)
 
 
 conexao.sync({alter: true})
