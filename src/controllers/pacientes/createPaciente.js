@@ -1,10 +1,8 @@
+// S01 - Cadastro de Paciente
+
 const Pacientes = require("../../models/paciente")
 
-
-
 async function createPaciente(request, response) {
-
-    // organizar os dados a serem cadastrados
     
     try {
         const paciente = {
@@ -19,8 +17,7 @@ async function createPaciente(request, response) {
             convenio: request.body.convenio,
             status_de_atendimento: request.body.status_de_atendimento,
             total_de_atendimentos: request.body.total_de_atendimentos,
-            
-        }
+            }
         
         const cpfExiste = await Pacientes.findOne({ 
             where: { cpf: request.body.cpf } 
@@ -31,12 +28,11 @@ async function createPaciente(request, response) {
              response.status(201).json(novoPaciente)
 
         }else{
-            response.status(409).json({message: "cpf já cadastrado"})
+            response.status(409).json({message: "CPF já cadastrado"})
         }
     
-
     } catch (error) {
-        return response.status(400).json({message: 'Não foi possivel processar a solicitacao'})
+        return response.status(400).json({message: 'Não foi possivel processar sua solicitacao.'})
     }
 
 }

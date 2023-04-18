@@ -1,8 +1,10 @@
+// S08 - Atualização dos dados de Médicos
+
 const Medico = require("../../models/medico")
 
 async function updateMedico(request, response) {
     try {
-        const id = request.params.id // pegando o id enviado
+        const id = request.params.id 
         const medicoInDatabase = await Medico.findByPk(id)
 
         if(!medicoInDatabase) {
@@ -20,16 +22,13 @@ async function updateMedico(request, response) {
         medicoInDatabase.total_de_atendimentos = request.body.total_de_atendimentos || medicoInDatabase.total_de_atendimentos
         medicoInDatabase.estado_no_sistema = request.body.estado_no_sistema || medicoInDatabase.estado_no_sistema
 
-
-
         await medicoInDatabase.save()
 
         return response.json(medicoInDatabase)
         
     } catch (error) {
-        return response.status(500).json({ message: 'Não possivel processar a solicitacao' })
+        return response.status(500).json({ message: 'Não foi possivel processar sua solicitação' })
     }
 }
-
 
 module.exports = updateMedico;

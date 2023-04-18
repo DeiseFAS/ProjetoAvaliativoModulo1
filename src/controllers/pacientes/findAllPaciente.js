@@ -1,3 +1,5 @@
+// S04 - Listagem de Pacientes
+
 const Paciente = require('../../models/paciente')
 
 async function findAllPaciente(request, response) {
@@ -17,15 +19,15 @@ async function findAllPaciente(request, response) {
                         status_de_atendimento: filtros.status
                     }
                 }
-            ) // busca todos os pacientes do banco de dados
-            response.json(pacientes) // retorna todos os pacientes buscados
+            ) 
+            response.json(pacientes) 
         } else {
-            const pacientes = await Paciente.findAll() // busca todos os pacientes do banco de dados
-            response.json(pacientes) // retorna todos os pacientes buscados
+            const pacientes = await Paciente.findAll() 
+            response.json(pacientes) 
         }
     } catch (error) {
         console.log(error)
-        return response.status(500).json({ message: 'Não possivel processar a solicitacao' })
+        return response.status(500).json({ message: 'Não foi possivel processar sua solicitação' })
     }
 }
 
@@ -50,18 +52,3 @@ module.exports = findAllPaciente;
 
 
 
-// const Pacientes = require('../../models/paciente')
-
-// async function findPaciente (request, response)  {
-//     try {
-//         const Pacientes = awaitPacientes.findAll({
-//             where: {
-//             id: request.body.id
-//         }})
-//         response.json(paciente)
-//     } catch (error) {
-//         response.status(500).json({ message: 'Não conseguimos processar sua solicitação.' })
-//     }
-// };
-
-// module.exports = findPacientes;

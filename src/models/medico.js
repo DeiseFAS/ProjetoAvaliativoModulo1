@@ -40,8 +40,7 @@ const Medicos = conexao.define('medico', {
         defaultValue: 0,
      },
      estado_no_sistema: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1,
+        type: Sequelize.ENUM("ATIVO", "INATIVO"),
      }    
 })
 

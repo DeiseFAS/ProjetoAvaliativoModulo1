@@ -12,6 +12,9 @@ const updatePaciente = require('./src/controllers/pacientes/updatePaciente');
 const createMedico = require('./src/controllers/medicos/createMedico');
 const updateMedico = require('./src/controllers/medicos/updateMedico');
 const updateStatusMedico = require('./src/controllers/medicos/updateStatusMedico');
+const findAllMedico = require('./src/controllers/medicos/findAllMedico');
+const findOneMedico = require('./src/controllers/medicos/findOneMedico');
+const deleteMedico = require('./src/controllers/medicos/deleteMedico');
 
 const app = express()
 app.use(express.json())
@@ -28,6 +31,9 @@ app.put('/api/pacientes/:id', updatePaciente)
 app.post('/api/medicos', createMedico)
 app.put('/api/medicos/:id', updateMedico)
 app.put('/api/medicos/:id/status', updateStatusMedico)
+app.get('/api/medicos', findAllMedico)
+app.get('/api/medicos/:id', findOneMedico)
+app.delete('/api/medicos/:id', deleteMedico)
 
 
 conexao.sync({alter: true})

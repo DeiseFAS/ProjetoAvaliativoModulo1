@@ -1,8 +1,10 @@
+// S06 - Exclusão de Paciente
+
 const Paciente = require('../../models/paciente')
 
 async function deletePaciente(request, response) {
     try {
-        const id = request.params.id // pegando o id enviado
+        const id = request.params.id 
         const pacienteInDatabase = await Paciente.findByPk(id)
 
         if(!pacienteInDatabase) {
@@ -13,10 +15,9 @@ async function deletePaciente(request, response) {
 
         return response.status(204).json()
     } catch (error) {
-        return response.status(500).json({ message: 'Não possivel processar a solicitacao' })
+        return response.status(500).json({ message: 'Não foi possivel processar sua solicitação' })
     }
 }
-
 
 module.exports = deletePaciente;
 

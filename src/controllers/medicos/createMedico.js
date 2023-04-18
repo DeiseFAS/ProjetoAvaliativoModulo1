@@ -1,11 +1,9 @@
+// S07 - Cadastro de Médico
+
 const Medico = require("../../models/medico")
 
-
-
 async function createMedico(request, response) {
-
-    // organizar os dados a serem cadastrados
-    
+ 
     try {
         const medico = {
             nome_completo: request.body.nome_completo,
@@ -32,11 +30,9 @@ async function createMedico(request, response) {
             response.status(409).json({message: "cpf já cadastrado"})
         }
     
-
     } catch (error) {
-        return response.status(400).json({message: 'Não foi possivel processar a solicitacao'})
+        return response.status(400).json({message: 'Não foi possivel processar sua solicitação'})
     }
-
 }
 
 module.exports = createMedico;
