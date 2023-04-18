@@ -19,6 +19,8 @@ const deleteMedico = require('./src/controllers/medicos/deleteMedico');
 const createEnfermeiro = require('./src/controllers/enfermeiros/createEnfermeiro');
 const updateEnfermeiro = require('./src/controllers/enfermeiros/updateEnfermeiro');
 const findAllEnfermeiro = require('./src/controllers/enfermeiros/findAllEnfermeiro');
+const findOneEnfermeiro = require('./src/controllers/enfermeiros/findOneEnfermeiro');
+const deleteEnfermeiro = require('./src/controllers/enfermeiros/deleteEnfermeiro');
 
 const app = express()
 app.use(express.json())
@@ -42,6 +44,8 @@ app.delete('/api/medicos/:id', deleteMedico)
 app.post('/api/enfermeiros', createEnfermeiro)
 app.put('/api/enfermeiros/:id', updateEnfermeiro)
 app.get('/api/enfermeiros', findAllEnfermeiro)
+app.get('/api/enfermeiros/:id', findOneEnfermeiro)
+app.delete('/api/enfermeiros/:id', deleteEnfermeiro)
 
 
 conexao.sync({alter: true})
