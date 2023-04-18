@@ -2,7 +2,7 @@ const Medico = require("../../models/medico")
 
 async function updateStatusMedico(request, response) {
     try {
-        const id = request.params.id // pegando o id enviado
+        const id = request.params.id 
         const medicoInDatabase = await Medico.findByPk(id)
 
         if(!medicoInDatabase) {
@@ -16,7 +16,7 @@ async function updateStatusMedico(request, response) {
         return response.json(medicoInDatabase)
         
     } catch (error) {
-        return response.status(500).json({ message: 'Não possivel processar a solicitacao' })
+        return response.status(500).json({ message: 'Não foi possivel processar sua solicitação' })
     }
 }
 
