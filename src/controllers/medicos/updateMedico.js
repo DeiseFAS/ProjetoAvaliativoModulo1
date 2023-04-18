@@ -17,7 +17,7 @@ async function updateMedico(request, response) {
         medicoInDatabase.cpf = request.body.cpf || medicoInDatabase.cpf
         medicoInDatabase.telefone = request.body.telefone || medicoInDatabase.telefone
         medicoInDatabase.instituicao_de_ensino_formacao = request.body.instituicao_de_ensino_formacao || medicoInDatabase.instituicao_de_ensino_formacao
-        medicoInDatabase.cadastro_crm_uf = request.body.cadastro_crm_uf || medicoInDatabase. cadastro_crm_uf
+        medicoInDatabase.cadastro_crm_uf = request.body.cadastro_crm_uf || medicoInDatabase.cadastro_crm_uf
         medicoInDatabase.especializacao_clinica = request.body.especializacao_clinica || medicoInDatabase.especializacao_clinica
         medicoInDatabase.total_de_atendimentos = request.body.total_de_atendimentos || medicoInDatabase.total_de_atendimentos
         medicoInDatabase.estado_no_sistema = request.body.estado_no_sistema || medicoInDatabase.estado_no_sistema
