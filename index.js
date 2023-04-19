@@ -22,9 +22,10 @@ const findAllEnfermeiro = require('./src/controllers/enfermeiros/findAllEnfermei
 const findOneEnfermeiro = require('./src/controllers/enfermeiros/findOneEnfermeiro');
 const deleteEnfermeiro = require('./src/controllers/enfermeiros/deleteEnfermeiro');
 
+const createAtendimento = require('./src/controllers/atendimentos/createAtendimento');
+
 const app = express()
 app.use(express.json())
-
 
 
 app.post('/api/pacientes', createPaciente)
@@ -47,9 +48,9 @@ app.get('/api/enfermeiros', findAllEnfermeiro)
 app.get('/api/enfermeiros/:id', findOneEnfermeiro)
 app.delete('/api/enfermeiros/:id', deleteEnfermeiro)
 
+app.post('/api/atendimentos', createAtendimento)
 
 conexao.sync({alter: true})
-
 
 
 app.listen(6666, () => {

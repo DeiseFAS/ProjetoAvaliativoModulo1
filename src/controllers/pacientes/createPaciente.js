@@ -1,6 +1,6 @@
 // S01 - Cadastro de Paciente
 
-const Pacientes = require("../../models/paciente")
+const Paciente = require("../../models/paciente")
 
 async function createPaciente(request, response) {
     
@@ -19,12 +19,12 @@ async function createPaciente(request, response) {
             total_de_atendimentos: request.body.total_de_atendimentos,
             }
         
-        const cpfExiste = await Pacientes.findOne({ 
+        const cpfExiste = await Paciente.findOne({ 
             where: { cpf: request.body.cpf } 
         })
     
         if(!cpfExiste) {
-            const novoPaciente = await Pacientes.create(paciente)
+            const novoPaciente = await Paciente.create(paciente)
              response.status(201).json(novoPaciente)
 
         }else{
