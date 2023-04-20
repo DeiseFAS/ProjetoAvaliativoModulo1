@@ -16,6 +16,7 @@ const Pacientes = conexao.define('paciente', {
      },
      data_de_nascimento: {
         type: Sequelize.DATEONLY,
+        allowNull: false,
      },
      cpf: {
         type: Sequelize.STRING,
