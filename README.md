@@ -68,8 +68,28 @@ Usaremos como exemplo as rotas do paciente, as demais rotas seguem a mesma lógi
 
 ## Cadastrar pacientes
 
+Serviço de cadastro de Paciente, possui os seguintes atributos:
+- Identificador: Um número que deve ser incrementado automaticamente
+- Nome Completo: Deve ser um texto
+- Gênero: Deve ser um texto
+- Data de Nascimento: Obrigatório, data válida.
+- CPF: Deve ser texto
+- Telefone: Deve ser texto
+- Contato de Emergência: Obrigatório, Deve ser texto
+- Lista de Alergias: Não obrigatório para a criação da classe
+- Lista de Cuidados Específicos: Não obrigatório para a criação da classe
+- Convênio: Não obrigatório para a criação da classe
+- Status de Atendimento: Um paciente pode estar com as seguintes situações:
+Aguardando Atendimento
+Em Atendimento
+Atendido
+- Não Atendido
+- Total de atendimentos realizados.
+Este item é um contador que inicia em zero. Sempre que um médico
+realiza um atendimento este valor deve ser incrementado.
+
 Request:
-* HTTP POST no path /api/pacientes
+* **HTTP POST no path /api/pacientes**
 * No corpo da request, informar objeto json com os campos
 * Todos os campos obrigatórios devem ser validados. O CPF deve serúnico por paciente. Validar se o CPF informado já foi cadastrado no sistema.
 
@@ -137,6 +157,151 @@ Exemplo:
 ```bash
   {
 	"message": "CPF já cadastrado"
+}
+```
+
+## Atualização dos dados de Pacientes
+
+Serviço para alterar/atualizar os dados de determinado paciente.
+O usuário do sistema poderá alterar sempre que necessário.
+
+Request:
+* **HTTP PUT no path /api/pacientes/{identificador}**
+* No corpo da request, informar objeto json com os campos , exceto o
+status do atendimento e total_de_atendimentos .
+* Os campos validados como sendo obrigatórios devem possuir os valores
+possíveis para estes campos.
+Exemplo:
+
+```bash
+  {
+   "nome_completo": "Nina Simone",
+   "genero": "F",
+   "data_de_nascimento": "1933-02-21",
+   "cpf": "03184611931",
+   "telefone": "388232366",
+   "contato_de_emergencia": "988562321",
+   "lista_de_alergias": "pelo de capivara",
+   "lista_de_cuidados_especificos": "não ficar com o pé molhado",
+   "convenio": "Jazz"
+}
+```
+
+
+○ Response:
+- HTTP Status Code 200 (OK) em caso de sucesso, constando no corpo da
+resposta os dados atualizados do paciente. 
+Exemplo: nesse caso, mudamos o nome artistico de Nina Simone, pelo nome de batismo Eunice Kathleen Waymon.
+
+```bash
+ {
+	"id": 1,
+	"nome_completo": "Eunice Kathleen Waymon",
+	"genero": "F",
+	"data_de_nascimento": "1933-02-21",
+	"cpf": "03184611931",
+	"telefone": "388232366",
+	"contato_de_emergencia": "32665163",
+	"lista_de_alergias": "pelo de capivara",
+	"lista_de_cuidados_especificos": "não ficar com o pé molhado",
+	"convenio": "Jazz",
+	"status_de_atendimento": "NAO_ATENDIDO",
+	"total_de_atendimentos": 0,
+	"createdAt": "2023-04-21T19:29:26.276Z",
+	"updatedAt": "2023-04-21T21:44:47.603Z"
+}
+```
+
+
+- HTTP Status Code 400 (Bad Request) em caso de requisição com dados
+inválidos, informando mensagem de erro explicativa no corpo do
+response.
+Exemplo: 
+
+```bash
+{
+	"message": "Não foi possivel processar sua solicitação."
+}
+```
+
+- HTTP Status Code 404 (Not Found) em caso de não ser encontrado
+registro com o código informado, retornando mensagem de erro
+explicativa no corpo do response.
+Exemplo:/api/pacientes/15
+colocamos um id inesistente.
+
+```bash
+{
+	"message": "Paciente não encontrado."
+}
+```
+
+## Atualização do Status de Atendimento
+
+Serviço para alterar/atualizar os dados de determinado paciente.
+O usuário do sistema poderá alterar sempre que necessário.
+
+Request:
+
+- **HTTP PUT no path /api/pacientes/{identificador}/status**
+- No corpo da request, informar objeto json com os campos.
+- O campo deve ser validado como sendo obrigatório e pertencente aos
+valores possíveis para este campo.
+
+```bash
+{
+    "status": "NAO_ATENDIDO"
+}
+```
+
+○ Response:
+
+- HTTP Status Code 200 (OK) em caso de sucesso, constando no corpo da
+resposta os dados atualizados do paciente.
+Exemplo: /api/pacientes/1/status
+
+```bash
+{
+	"id": 1,
+	"nome_completo": "Eunice Kathleen Waymon",
+	"genero": "F",
+	"data_de_nascimento": "1933-02-21",
+	"cpf": "03184611931",
+	"telefone": "388232366",
+	"contato_de_emergencia": "32665163",
+	"lista_de_alergias": "pelo de capivara",
+	"lista_de_cuidados_especificos": "não ficar com o pé molhado",
+	"convenio": "Jazz",
+	"status_de_atendimento": "NAO_ATENDIDO",
+	"total_de_atendimentos": 0,
+	"createdAt": "2023-04-21T19:29:26.276Z",
+	"updatedAt": "2023-04-21T21:44:47.603Z"
+}
+```
+
+
+
+- HTTP Status Code 400 (Bad Request) em caso de requisição com dados
+inválidos, informando mensagem de erro explicativa no corpo do
+response.
+Exemplo: no corpo da requisição colocamos a palavra "AENDIMENTO" que não faz parte dos
+valores pré estabelecidos.
+
+```bash
+{
+	"message": "O status deve ser AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO ou NAO_ATENDIDO"
+}
+```
+
+- HTTP Status Code 404 (Not Found) em caso de não ser encontrado
+registro com o código informado, retornando mensagem de erro
+explicativa no corpo do response.
+Exemplo: /api/pacientes/9/status
+Colocamos um id inesistente.
+
+```bash
+{
+	"message": "Paciente não encontrado"
 }
 ```
 
