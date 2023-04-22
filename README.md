@@ -19,6 +19,8 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 * [Instalação](Instalação)
 * [Endpoints](Endpoints-Rotas)
 * [Melhorias](Melhorias-a-serem-aplicadas)
+* [Autor](Autor)
+* [Logo](Logo)
 
 # Roteiro da aplicação
 
@@ -99,7 +101,6 @@ Request:
 * **HTTP POST no path /api/pacientes**
 * No corpo da request, informar objeto json com os campos
 * Todos os campos obrigatórios devem ser validados. O CPF deve serúnico por paciente. Validar se o CPF informado já foi cadastrado no sistema.
-
 Exemplo:
 
 ```bash
@@ -120,7 +121,7 @@ Exemplo:
 
 
 Response:
-* HTTP Status Code 201 (CREATED) em caso de sucesso, constando no
+* **HTTP Status Code 201 (CREATED)** em caso de sucesso, constando no
 corpo da resposta o código atribuído ao novo paciente cadastrado, além
 dos demais campos. No response, retornar os campos adicionais
 “identificador” e “atendimentos”, usando obrigatoriamente estes nomes
@@ -148,7 +149,7 @@ Exemplo:
 }
 ```
 
-* HTTP Status Code 400 (Bad Request) em caso de requisição
+* **HTTP Status Code 400 (Bad Request)** em caso de requisição
 com dados inválidos, informando mensagem de erro explicativa
 no corpo do response.
 Exemplo:
@@ -161,7 +162,7 @@ Exemplo:
 }
 ```
 
-* HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado,
+* **HTTP Status Code 409 (Conflict)** em caso de CPF já cadastrado,
 informando mensagem de erro explicativa no corpo do response.
 Exemplo:
 
@@ -202,7 +203,7 @@ Exemplo:
 
 
 ○ Response:
-- HTTP Status Code 200 (OK) em caso de sucesso, constando no corpo da
+- **HTTP Status Code 200 (OK)** em caso de sucesso, constando no corpo da
 resposta os dados atualizados do paciente. 
 Exemplo: nesse caso, mudamos o nome artistico de Nina Simone, pelo nome de batismo Eunice Kathleen Waymon.
 
@@ -228,7 +229,7 @@ Exemplo: nesse caso, mudamos o nome artistico de Nina Simone, pelo nome de batis
 ```
 
 
-- HTTP Status Code 400 (Bad Request) em caso de requisição com dados
+- **HTTP Status Code 400 (Bad Request)** em caso de requisição com dados
 inválidos, informando mensagem de erro explicativa no corpo do
 response.
 Exemplo: 
@@ -241,7 +242,7 @@ Exemplo:
 }
 ```
 
-- HTTP Status Code 404 (Not Found) em caso de não ser encontrado
+- **HTTP Status Code 404 (Not Found)** em caso de não ser encontrado
 registro com o código informado, retornando mensagem de erro
 explicativa no corpo do response.
 Exemplo:/api/pacientes/15
@@ -275,7 +276,7 @@ valores possíveis para este campo.
 
 ○ Response:
 
-- HTTP Status Code 200 (OK) em caso de sucesso, constando no corpo da
+- **HTTP Status Code 200 (OK)** em caso de sucesso, constando no corpo da
 resposta os dados atualizados do paciente.
 Exemplo: /api/pacientes/1/status
 
@@ -302,7 +303,7 @@ Exemplo: /api/pacientes/1/status
 
 
 
-- HTTP Status Code 400 (Bad Request) em caso de requisição com dados
+- **HTTP Status Code 400 (Bad Request)** em caso de requisição com dados
 inválidos, informando mensagem de erro explicativa no corpo do
 response.
 Exemplo: no corpo da requisição colocamos a palavra "AENDIMENTO" que não faz parte dos
@@ -316,7 +317,7 @@ valores pré estabelecidos.
 }
 ```
 
-- HTTP Status Code 404 (Not Found) em caso de não ser encontrado
+- **HTTP Status Code 404 (Not Found)** em caso de não ser encontrado
 registro com o código informado, retornando mensagem de erro
 explicativa no corpo do response.
 Exemplo: /api/pacientes/9/status
@@ -343,8 +344,8 @@ consulta pelo status de atendimento.
 - query param = “status” (não obrigatório ser informado na
 request)
 - Valores possíveis para serem informados na requisição =
-AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO e
-NAO_ATENDIDO
+**AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO e
+NAO_ATENDIDO**
 - Exemplo de path com o query param informado:
 /api/pacientes?status=ATENDIDO
 - Caso não seja informado o parâmetro de pesquisa, deve retornar todos
@@ -410,18 +411,18 @@ Serviço para excluir um paciente pelo código identificador.
 
 Request:
 
-- HTTP DELETE no path /api/pacientes/{identificador}
+- **HTTP DELETE no path /api/pacientes/{identificador}**
 - Não é necessário request body.
 Exemplo: 
 
 Response:
 
-- HTTP Status Code 204 (No Content) em caso de sucesso, sem
+- **HTTP Status Code 204 (No Content)** em caso de sucesso, sem
 necessidade de response body.
 
 ![image](https://user-images.githubusercontent.com/71991444/233751425-64619a54-d395-4ff0-a9cc-5667fc8255b5.png)
 
-- HTTP Status Code 404 (Not Found) em caso de requisição com código
+- **HTTP Status Code 404 (Not Found)** em caso de requisição com código
 não existente na base de dados.
 
 ![image](https://user-images.githubusercontent.com/71991444/233749895-cfba6345-b7e0-40d7-b662-b4be80246ce7.png)
@@ -433,6 +434,28 @@ não existente na base de dados.
 ```
 
 # Melhorias a serem aplicadas
+
+As melhorias que podem ser aplicadas são muitas, mas gostaria de destacar:
+
+* Incorporar autenticação com login e senha para acesso ao sistema.
+* Novas tabelas referente a agendamento de consultas,retornos e exames.
+* Tabela referente a check-list dos enfermeiros. (Troca de curativo, aplicação de medicação, verificação de pressão...)
+* Automação para confirmação das consultas agendadas.
+* Lembrete via e-mail, com os dados da consulta agendada.
+* Pesquisa por data de atentimento.
+
+# Autor
+
+Esse projeto foi desenvolvido por: **Deise F A S.**
+
+Mentor: **Douglas Cavalcante**
+
+# Logo
+
+Para esse projeto, criei uma logo com base no nome que escolhi para a aplicação, Medifacil.
+
+![image](https://user-images.githubusercontent.com/71991444/233752889-b80bec58-5410-4238-9e2d-dbfcd1f30a47.png)
+
 
 
 
