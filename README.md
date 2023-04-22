@@ -11,7 +11,8 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 
 # Índice 
 
-* [Resumo](resumo)
+* [Roteiro da aplicação](Roteiro-da-aplicação)
+* [Carregamento de dados iniciais](Carregamento-de-dados-iniciais)
 * [Pré-Requisitos](Pré-Requisitos)
 * [Dependências](Dependências)
 * [Técnicas e padrões utilizadas](Técnicas-e-padrões-utilizadas)
@@ -19,9 +20,15 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 * [Endpoints](Endpoints-Rotas)
 * [Melhorias](Melhorias-a-serem-aplicadas)
 
-# Resumo
+# Roteiro da aplicação
 
-Repositório criado para entrega do Projeto avaliativo do curso...
+Automatiza algumas ações de atendimento, criando um sistema para
+armazenamento de informações referente aos pacientes, enfermeiros e médicos.
+
+# Carregamento de dados iniciais
+
+Deve ser utilizado como Sistema Gerenciador de Banco de Dados o PostgreSQL, e a
+aplicação deve usar como nome do banco de dados labmedicinebd.
 
 # Pré-Requisitos
 
