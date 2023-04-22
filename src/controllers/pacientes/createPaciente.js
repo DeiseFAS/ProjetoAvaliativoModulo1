@@ -17,8 +17,13 @@ async function createPaciente(request, response) {
             convenio: request.body.convenio,
             status_de_atendimento: request.body.status_de_atendimento,
             total_de_atendimentos: request.body.total_de_atendimentos,
-            }
+        }
         
+        // validação de campos obrigatórios
+        if(!paciente.nome_completo || !paciente.contato_de_emergencia || !paciente.data_de_nascimento){
+            return response.status(400).json({message: 'Por favor, preencha todos os campos obrigatórios.'})
+        }
+
         const cpfExiste = await Paciente.findOne({ 
             where: { cpf: request.body.cpf } 
         })

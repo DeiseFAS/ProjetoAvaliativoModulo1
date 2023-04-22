@@ -26,7 +26,7 @@ async function updatePaciente(request, response) {
         return response.json(pacienteInDatabase)
         
     } catch (error) {
-        return response.status(500).json({ message: 'Não foi possivel processar sua solicitação.' })
+        return response.status(400).json({ message: 'Não foi possivel processar sua solicitação.' })
     }
 }
 

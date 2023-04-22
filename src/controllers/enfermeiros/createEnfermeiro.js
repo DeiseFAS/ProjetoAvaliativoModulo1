@@ -15,6 +15,10 @@ async function createEnfermeiro(request, response) {
             cadastro_cofen_uf: request.body.cadastro_cofen_uf,      
         }
         
+        if(!enfermeiro.nome_completo || !enfermeiro.data_de_nascimento || !enfermeiro.instituicao_de_ensino_formacao || !enfermeiro.cadastro_cofen_uf){
+            return response.status(400).json({message: 'Por favor, preencha todos os campos obrigatórios.'})
+        }
+        
         const cpfExiste = await Enfermeiro.findOne({ 
             where: { cpf: request.body.cpf } 
         })
@@ -28,7 +32,7 @@ async function createEnfermeiro(request, response) {
         }
     
     } catch (error) {
-        return response.status(400).json({message: 'Não foi possivel processar sua solicitação'})
+        return response.status(500).json({message: 'Não foi possivel processar sua solicitação'})
     }
 }
 

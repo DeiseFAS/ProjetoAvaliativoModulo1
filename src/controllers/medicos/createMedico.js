@@ -18,6 +18,10 @@ async function createMedico(request, response) {
             estado_no_sistema: request.body.estado_no_sistema,         
         }
         
+        if(!medico.nome_completo || !medico.data_de_nascimento || !medico.instituicao_de_ensino_formacao || !medico.cadastro_crm_uf){
+            return response.status(400).json({message: 'Por favor, preencha todos os campos obrigatórios.'})
+        }
+
         const cpfExiste = await Medico.findOne({ 
             where: { cpf: request.body.cpf } 
         })
