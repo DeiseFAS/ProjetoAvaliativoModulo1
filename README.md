@@ -17,6 +17,7 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 * [Endpoints](#endpoints-Rotas)
 * [Melhorias](#melhorias-a-serem-aplicadas)
 * [Organização](#organização-para-o-desenvolvimento-do-projeto)
+* [Aprendizado](#aprendizado)
 * [Autor](#autor)
 * [Logo](#logo)
 
@@ -453,6 +454,21 @@ Escolhi usar o TRELLO, mesma ferramenta usada no curso. Dividir o projeto em peq
 Exemplo do quadro na primeira semana:
 ![image](https://user-images.githubusercontent.com/71991444/233754634-a7a715f6-bb36-4845-9e45-dba45419a280.png)
 
+# Aprendizado
+
+Com o desenvolviento desse projeto pude experimentar as "dores e delicias" de fazer uma aplicação do começo ao fim. Tive a oportunidade de fortalecer conceitos de programação, a raiva e satisfação de resolver os bugs (que eu mesmo criei por erro de lógica), vivenciei o desespero inicial de achar que não conseguiria concluir o projeto a tempo e a alegria de ver o resultado de cada teste rodando como o esperado. Quero aproveitar para registrar que "na minha máquina está tudo funcionando" rsrsrsrs Obrigada ao Prof Douglas Cavalcante pela paciência e forma generosa de ensinar.
+Como pontos importantes de aprendizado, destaco ainda:
+
+- Programação Orientada a Objetos: Conceitos de POO, Classes, Objetos.
+- Versionamento: Uso do GitHub para versionamento de código.
+- JavaScript: Variáveis, Tipos de dados, Operadores, Arrays, Estrutura de Controle de Fluxo, Objetos, JSON, Funções, Arrow Functions, LocalStorage, Interval, Timeout,
+Operadores Rest e Spread, Módulos, Funções de Arrays e Funções Assíncronas.
+- ExpressJS: Ambiente, Estrutura de projeto, API Rest, CRUD, Integração com banco de
+dados e Uso do Framework.
+- Banco de Dados: Modelo Relacional e SQL com PostgreSQL.
+- Skills: Organização, criação de documentação, apresentação de solução e a pedir ajuda quando necessário.
+
+
 # Autor
 
 Esse projeto foi desenvolvido por: **Deise F A S.**
@@ -468,6 +484,10 @@ Para esse projeto, criei uma logo com base no nome que escolhi para a aplicaçã
 
 
 
+
+
+
+https://user-images.githubusercontent.com/71991444/233794231-50941561-8d58-45a9-a546-f4193ddddd7c.mp4
 
 
 
