@@ -1,27 +1,24 @@
 <h1 align="center">Módulo 1 🎓 Projeto Avaliativo </h1>
 <p align="center">Curso Lab365 - SESI SENAI - Projeto Floripa Mais Tec<p/>
 
-
 ![banner git - projeto avaliativo modulo1](https://user-images.githubusercontent.com/71991444/233677516-d8b2d792-157b-49d5-b230-14ea4600c301.jpg)
 
 <p align="center">MEDIFACIL Software foi criado para automatizar determinados processos de gerenciamento em âmbito hospitalar. Esse Produto Viável Mínimo (Inglês: MVP) da API Rest, foi
 construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 
-
-
 # Índice 
 
-* [Roteiro da aplicação](Roteiro-da-aplicação)
-* [Carregamento de dados iniciais](Carregamento-de-dados-iniciais)
-* [Pré-Requisitos](Pré-Requisitos)
-* [Dependências](Dependências)
-* [Técnicas e padrões utilizadas](Técnicas-e-padrões-utilizadas)
-* [Instalação](Instalação)
-* [Endpoints](Endpoints-Rotas)
-* [Melhorias](Melhorias-a-serem-aplicadas)
-* [Organização](Organização-para-o-desenvolvimento-do-projeto)
-* [Autor](Autor)
-* [Logo](Logo)
+* [Roteiro da aplicação](#roteiro-da-aplicação)
+* [Carregamento de dados iniciais](#carregamento-de-dados-iniciais)
+* [Pré-Requisitos](#pré-Requisitos)
+* [Dependências](#dependências)
+* [Técnicas e padrões utilizadas](#técnicas-e-padrões-utilizadas)
+* [Instalação](#instalação)
+* [Endpoints](#endpoints-Rotas)
+* [Melhorias](#melhorias-a-serem-aplicadas)
+* [Organização](#organização-para-o-desenvolvimento-do-projeto)
+* [Autor](#autor)
+* [Logo](#logo)
 
 # Roteiro da aplicação
 
@@ -41,27 +38,31 @@ Para trabalhar com essa aplicação você vai precisar:
 
 # Dependências
 
-| Plugin | Versão | Uso |
+| Dependência | Versão | Uso |
 | ------ | ------ | ------ |
-| Sequelize | ^6.31.0 |Gerenciar modelos da aplicação |
-| dotenv | ^16.0.3 | Gerenciar modelos da aplicação |
-| express | ^4.18.2 | Gerenciar modelos da aplicação |
-| nodemon | ^2.0.22 | Gerenciar modelos da aplicação |
-| pg | ^8.10.0 | Gerenciar modelos da aplicação |
-| pg-hstore | ^2.3.4 | Gerenciar modelos da aplicação |
-| yup | ^1.0.2 | Gerenciar modelos da aplicação |
+| Sequelize | ^6.31.0 | Gerenciamento de modelos e bancos de dados em Node.js. |
+| dotenv | ^16.0.3 | Permite o uso de variáveis de ambiente na sua aplicação. |
+| express | ^4.18.2 | Oferece um conjunto de ferramentas para gerenciamento de rotas, middlewares, parâmetros de requisição e resposta, entre outros recursos. |
+| nodemon | ^2.0.22 | Permite reiniciar automaticamente sua aplicação Node.js sempre que houver alterações no código fonte. |
+| pg | ^8.10.0 | fornece um driver de banco de dados PostgreSQL para o Node.js. |
+| pg-hstore | ^2.3.4 | Converte objetos JavaScript em formato JSON para uma representação em string do tipo hstore, que pode ser armazenada em campos do tipo hstore do banco de dados PostgreSQL. |
+| yup | ^1.0.2 |  oferece um conjunto de ferramentas para validação de dados em JavaScript. |
 
 # Técnicas e padrões utilizadas
 
-O projeto foi dividido em uma estruturas de pastas para melhor organização.
+O projeto foi dividido em uma estrutura de hierarquia de pastas, de forma padronizada para melhor organização. Levando em consideração que uma boa organização
+é fundamental para a facilidade de navegação, escalabilidade já que, acreditando que o projeto possa vir a crescer de forma mais estruturada e gerenciável,
+facilita a manutenção, evolução e adição de novas funcionalidades.
+A boa organização também contriu para o reaproveitamento de código, testabilidade e manutenção. Por isso sugero que, caso opte por clonar e queira prosseguir
+com esse projeto, dê continuidade ao padrão já estabelecido.
 
 ![image](https://user-images.githubusercontent.com/71991444/233700733-6c059aaf-31e4-4739-801b-154c70bb4a01.png)
 
-| Plugin | Uso |
-| ------ | ------ |
-| /src/controllers | Contém todos modelos da aplicação |
-| /src/database | Contém todos modelos da aplicação |
-| /src/models | Contém todos modelos da aplicação |
+| Caminho | Contém | Vai encontrar | 
+| ------ | ------ | ------|
+| **/src/controllers** | Controladores da API, responsáveis por receber as requisições dos clientes e responder com as informações solicitadas. | Os arquivos que definem as rotas da API, as funções que processam as requisições e as respostas, e todas as validações necessárias para garantir a integridade e segurança dos dados. | 
+| **/src/database** | Os arquivos e configurações relacionados ao banco de dados utilizado pela sua API. | Os scripts SQL, as definições de tabelas e índices, as conexões de banco de dados, entre outros. | 
+| **/src/models** | Os modelos ou esquemas de dados da sua API, que definem como as informações serão armazenadas e organizadas no banco de dados. | Os arquivos que descrevem as tabelas, campos, relacionamentos e validações dos dados. |
 
 # Instalação
 
