@@ -19,6 +19,7 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 * [Instalação](Instalação)
 * [Endpoints](Endpoints-Rotas)
 * [Melhorias](Melhorias-a-serem-aplicadas)
+* [Organização](Organização-para-o-desenvolvimento-do-projeto)
 * [Autor](Autor)
 * [Logo](Logo)
 
@@ -443,6 +444,13 @@ As melhorias que podem ser aplicadas são muitas, mas gostaria de destacar:
 * Automação para confirmação das consultas agendadas.
 * Lembrete via e-mail, com os dados da consulta agendada.
 * Pesquisa por data de atentimento.
+
+# Organização para o desenvolvimento do projeto
+
+Escolhi usar o TRELLO, mesma ferramenta usada no curso. Dividir o projeto em pequenas partes facilitou bastante na organização e no comprimento dos prazos que estabeleci.
+
+Exemplo do quadro na primeira semana:
+![image](https://user-images.githubusercontent.com/71991444/233754634-a7a715f6-bb36-4845-9e45-dba45419a280.png)
 
 # Autor
 
