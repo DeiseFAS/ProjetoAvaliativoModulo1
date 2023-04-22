@@ -11,13 +11,13 @@ construída utilizando JavaScript, ExpressJS e PostgreSQL.</p>
 
 # Índice 
 
-* [Resumo](#resumo)
-* [Pré-Requisitos](#Pré-Requisitos)
+* [Resumo](resumo)
+* [Pré-Requisitos](Pré-Requisitos)
 * [Dependências](Dependências)
 * [Técnicas e padrões utilizadas](Técnicas-e-padrões-utilizadas)
 * [Instalação](Instalação)
 * [Endpoints](Endpoints-Rotas)
-* [Documentação do Projeto](Em-andamento)
+* [Melhorias](Melhorias-a-serem-aplicadas)
 
 # Resumo
 
@@ -88,7 +88,7 @@ Atendido
 Este item é um contador que inicia em zero. Sempre que um médico
 realiza um atendimento este valor deve ser incrementado.
 
-Request:
+Request: 
 * **HTTP POST no path /api/pacientes**
 * No corpo da request, informar objeto json com os campos
 * Todos os campos obrigatórios devem ser validados. O CPF deve serúnico por paciente. Validar se o CPF informado já foi cadastrado no sistema.
@@ -120,6 +120,8 @@ dos demais campos. No response, retornar os campos adicionais
 para os campos.
 Exemplo:
 
+![image](https://user-images.githubusercontent.com/71991444/233750100-5748c929-041f-44e0-8b72-747326c695d2.png)
+
 ```bash
   {
 	"id": 1,
@@ -144,6 +146,8 @@ com dados inválidos, informando mensagem de erro explicativa
 no corpo do response.
 Exemplo:
 
+![image](https://user-images.githubusercontent.com/71991444/233750869-945645ce-e166-4d2b-962a-5078625bd6c8.png)
+
 ```bash
  {
 	"message": "Preencha todos os campos obrigatórios."
@@ -153,6 +157,8 @@ Exemplo:
 * HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado,
 informando mensagem de erro explicativa no corpo do response.
 Exemplo:
+
+![image](https://user-images.githubusercontent.com/71991444/233751052-f1ec012e-3d9f-4ffa-9276-42290212dacd.png)
 
 ```bash
   {
@@ -193,6 +199,8 @@ Exemplo:
 resposta os dados atualizados do paciente. 
 Exemplo: nesse caso, mudamos o nome artistico de Nina Simone, pelo nome de batismo Eunice Kathleen Waymon.
 
+![image](https://user-images.githubusercontent.com/71991444/233750576-c20d07d5-df35-409b-b317-16b96101f2d8.png)
+
 ```bash
  {
 	"id": 1,
@@ -218,6 +226,8 @@ inválidos, informando mensagem de erro explicativa no corpo do
 response.
 Exemplo: 
 
+![image](https://user-images.githubusercontent.com/71991444/233750887-a1fcf4c7-c7d7-4b1c-bcc4-7bd2a2066665.png)
+
 ```bash
 {
 	"message": "Não foi possivel processar sua solicitação."
@@ -229,6 +239,8 @@ registro com o código informado, retornando mensagem de erro
 explicativa no corpo do response.
 Exemplo:/api/pacientes/15
 colocamos um id inesistente.
+
+![image](https://user-images.githubusercontent.com/71991444/233749959-2c842bd2-0e5c-42a1-a325-c3fa02e26e9b.png)
 
 ```bash
 {
@@ -260,6 +272,8 @@ valores possíveis para este campo.
 resposta os dados atualizados do paciente.
 Exemplo: /api/pacientes/1/status
 
+![image](https://user-images.githubusercontent.com/71991444/233750591-33f686ff-2b2a-405e-b833-9a587364f1f9.png)
+
 ```bash
 {
 	"id": 1,
@@ -287,6 +301,8 @@ response.
 Exemplo: no corpo da requisição colocamos a palavra "AENDIMENTO" que não faz parte dos
 valores pré estabelecidos.
 
+![image](https://user-images.githubusercontent.com/71991444/233750907-488d1502-2ff3-4269-bf15-ed8ee209ed3f.png)
+
 ```bash
 {
 	"message": "O status deve ser AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO ou NAO_ATENDIDO"
@@ -299,16 +315,117 @@ explicativa no corpo do response.
 Exemplo: /api/pacientes/9/status
 Colocamos um id inesistente.
 
+![image](https://user-images.githubusercontent.com/71991444/233749970-d448a278-a68d-4c8b-a664-43ed8d0626ea.png)
+
 ```bash
 {
 	"message": "Paciente não encontrado"
 }
 ```
 
+## Listagem de Pacientes
+
+Serviço de listagem de pacientes cadastrados.
+
+Request:
+
+- **HTTP GET no path /api/pacientes**
+- Não é necessário request body
+- Deve prever um query param opcional para filtrar o resultado da
+consulta pelo status de atendimento.
+- query param = “status” (não obrigatório ser informado na
+request)
+- Valores possíveis para serem informados na requisição =
+AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO e
+NAO_ATENDIDO
+- Exemplo de path com o query param informado:
+/api/pacientes?status=ATENDIDO
+- Caso não seja informado o parâmetro de pesquisa, deve retornar todos
+os registros da base de dados.
+○ Response:
+- **HTTP Status Code 200 (OK)**, com a lista de pacientes.
+
+![image](https://user-images.githubusercontent.com/71991444/233750167-db936ce4-4f1d-45eb-9ce3-bb17358238a3.png)
 
 
+## Listagem de Paciente pelo identificador
+
+Serviço de consulta de paciente pelo seu código identificador.
+
+Request:
+- **HTTP GET no path /api/pacientes/{identificador}**
+- Não é necessário request body.
+Exemplo: /api/pacientes/1
+
+Response:
+- **HTTP Status Code 200 (OK)**, com os dados do paciente.
+Exemplo:
+
+![image](https://user-images.githubusercontent.com/71991444/233750753-6e7554b1-5591-4ab7-b641-09322cd155f1.png)
 
 
+```bash
+{
+	"id": 1,
+	"nome_completo": "Eunice Kathleen Waymon",
+	"genero": "F",
+	"data_de_nascimento": "1933-02-21",
+	"cpf": "03184611931",
+	"telefone": "388232366",
+	"contato_de_emergencia": "32665163",
+	"lista_de_alergias": "pelo de capivara",
+	"lista_de_cuidados_especificos": "não ficar com o pé molhado",
+	"convenio": "Jazz",
+	"status_de_atendimento": "NAO_ATENDIDO",
+	"total_de_atendimentos": 0,
+	"createdAt": "2023-04-21T19:29:26.276Z",
+	"updatedAt": "2023-04-21T21:44:47.603Z"
+}
+```
+
+- **HTTP Status Code 404 (Not Found)** em caso de não ser encontrado
+registro com o código informado, retornando mensagem de erro
+explicativa no corpo do response.
+Exemplo:/api/pacientes/10
+O id nesse caso é inessistente 
+
+![image](https://user-images.githubusercontent.com/71991444/233749895-cfba6345-b7e0-40d7-b662-b4be80246ce7.png)
+
+```bash
+{
+	"message": "Paciente não encontrado"
+}
+```
+
+## Exclusão de Paciente
+
+Serviço para excluir um paciente pelo código identificador.
+
+Request:
+
+- HTTP DELETE no path /api/pacientes/{identificador}
+- Não é necessário request body.
+Exemplo: 
+
+Response:
+
+- HTTP Status Code 204 (No Content) em caso de sucesso, sem
+necessidade de response body.
+
+![image](https://user-images.githubusercontent.com/71991444/233751425-64619a54-d395-4ff0-a9cc-5667fc8255b5.png)
+
+- HTTP Status Code 404 (Not Found) em caso de requisição com código
+não existente na base de dados.
+
+![image](https://user-images.githubusercontent.com/71991444/233749895-cfba6345-b7e0-40d7-b662-b4be80246ce7.png)
+
+```bash
+{
+	"message": "Paciente não encontrado"
+}
+```
+
+# Melhorias a serem aplicadas
 
 
 
